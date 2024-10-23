@@ -26,7 +26,7 @@ uplos deploy
 
 # configuration
 
-```json
+```js
 {
     "actions": [
         {

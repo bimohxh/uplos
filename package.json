@@ -11,6 +11,14 @@
   },
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bimohxh/uplos.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bimohxh/uplos/issues"
+  },
+  "homepage": "https://github.com/bimohxh/uplos#readme",
   "dependencies": {
     "ali-oss": "^6.21.0",
     "cli-progress": "^3.12.0",
