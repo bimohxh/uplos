@@ -23,6 +23,22 @@ after complete configuration, you can deploy your project
 uplos deploy
 ```
 
+the result will like following
+
+
+![](./demo.png)
+
+this demo has two actions(upload some files to one oss and some files to another oss).
+
+before upload, uplos will check the files first, included
+
+- local files shoud be uploaded this time.
+- local files shoud be uploaded but has exist on remote and not changed.
+- local files has been deleted and should delete remoted files also.
+
+
+after you confirm, just enter `y` to continue deploy 
+
 
 # configuration
 
