@@ -26,7 +26,7 @@ program
             console.log('you have no configuration file, you can use `uplos init` to init one.'.red);
             return;
         }
-        oss.deploy(localConfig);
+        oss.deploy(localConfig, options.force);
   })
 
 
