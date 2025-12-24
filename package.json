@@ -1,6 +1,6 @@
 {
   "name": "uplos",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "preferGlobal": true,
   "description": "A command line tool to sync local static files to oss",
   "bin": {

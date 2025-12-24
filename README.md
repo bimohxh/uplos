@@ -59,6 +59,17 @@ after you confirm, just enter `y` to continue deploy
             "remove_prefix": "", // prefix should remove at remote
             "ignore": ["node_modules"],
             "whitelist": [],
+            "meta": { // optional, add custom headers for specific files
+                "index.html": {
+                    "Cache-Control": "no-cache"
+                },
+                "*.html": {
+                    "Cache-Control": "no-cache"
+                },
+                "**/*.js": {
+                    "Cache-Control": "max-age=31536000"
+                }
+            }
         }
     ] 
 }
@@ -201,3 +212,37 @@ so, `ignore` can work with `whitelist` together, the value is a array, and the g
     "ignore": ["b/download.zip"]
 }
 ```
+
+## meta headers
+
+you can add custom HTTP headers for specific files uploaded to OSS. This is useful for setting cache control, content type, and other HTTP headers.
+
+The `meta` field in the configuration accepts an object where:
+- **Key**: A file path pattern (supports glob patterns like `.gitignore`)
+- **Value**: An object containing HTTP headers to be set
+
+```json
+{
+    "meta": {
+        "index.html": {
+            "Cache-Control": "no-cache"
+        },
+        "*.html": {
+            "Cache-Control": "no-cache"
+        },
+        "**/*.js": {
+            "Cache-Control": "max-age=31536000"
+        },
+        "**/*.css": {
+            "Cache-Control": "max-age=31536000",
+            "Content-Type": "text/css"
+        }
+    }
+}
+```
+
+**Pattern matching rules:**
+- Exact file name: `index.html` matches only `index.html`
+- Wildcard: `*.html` matches all `.html` files in any directory
+- Glob pattern: `**/*.js` matches all `.js` files in any nested directory
+- If multiple patterns match a file, all headers will be merged
